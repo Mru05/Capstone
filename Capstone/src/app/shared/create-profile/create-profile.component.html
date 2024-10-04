@@ -1,0 +1,31 @@
+<div class="container">
+    <h2>Create Profile</h2>
+    <form [formGroup]="createProfileForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="firstname">First Name:</label>
+        <input type="text" id="firstname" formControlName="firstname" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" formControlName="lastname" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="state">State:</label>
+        <input type="text" id="state" formControlName="state" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="city">City:</label>
+        <input type="text" id="city" formControlName="city" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="accountNumber">Account Number:</label>
+        <input type="number" id="accountNumber" formControlName="accountNumber" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="balance">Balance:</label>
+        <input type="number" id="balance" formControlName="balance" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="createProfileForm.invalid">Create Profile</button>
+    </form>
+  </div>
+  
