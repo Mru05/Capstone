@@ -1,0 +1,41 @@
+<div class="container my-4">
+  <h2 class="text-center">Employee Transaction Report</h2>
+
+  <div class="mb-3">
+    <label for="sort-by" class="mr-2">Sort by:</label>
+    <select id="sort-by" [(ngModel)]="sortedField" (change)="sortTable(sortedField)" class="form-control d-inline-block" style="width: auto;">
+      <option *ngFor="let option of sortOptions" [value]="option.value">{{ option.label }}</option>
+    </select>
+
+    <label for="sort-order" class="ml-3 mr-2">Order:</label>
+    <select id="sort-order" [(ngModel)]="isAsc" (change)="sortTable(sortedField)" class="form-control d-inline-block" style="width: auto;">
+      <option [ngValue]="true">Ascending</option>
+      <option [ngValue]="false">Descending</option>
+    </select>
+  </div>
+
+  <table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>Employee ID</th>
+        <th>Account Number</th>
+        <th>Email</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Salary</th>
+        <th>Client Registration Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>{{ employee.employee_id }}</td>
+        <td>{{ employee.account_number }}</td>
+        <td>{{ employee.email }}</td>
+        <td>{{ employee.first_name }}</td>
+        <td>{{ employee.last_name }}</td>
+        <td>{{ employee.salary | currency }}</td>
+        <td>{{ employee.client_registration_number }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
